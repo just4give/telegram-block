@@ -16,7 +16,7 @@ volumes:
   shared-media:
 
 services:
-  dashboard:
+  telegram-block:
     image: mithundotdas/telegram-block:armv7hf
     restart: always
     network_mode: host
@@ -34,7 +34,7 @@ volumes:
   shared-media:
 
 services:
-  dashboard:
+  telegram-block:
     build: ./
     restart: always
     network_mode: host
