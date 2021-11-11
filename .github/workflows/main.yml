@@ -29,5 +29,6 @@ jobs:
       
       - name: Docker Push
         run: |
-          docker buildx build --help
+          # docker buildx build --help
+          sh ./build-images.sh
 
