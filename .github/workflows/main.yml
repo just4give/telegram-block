@@ -25,5 +25,5 @@ jobs:
       
       - name: Docker Push
         run: |
-          chmod +x build-images.sh
-          ./build-images.sh
+          docker buildx build --help
+
