@@ -20,4 +20,6 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       
       - name: Docker Push
-        run: sh build-images.sh
+        run: |
+          chmod +x build-images.sh
+          ./build-images.sh
