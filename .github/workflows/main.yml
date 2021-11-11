@@ -19,5 +19,5 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       
-      - name: Docker info
-        run: docker info
+      - name: Docker Push
+        run: sh build-images.sh
