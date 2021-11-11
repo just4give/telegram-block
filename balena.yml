@@ -1,0 +1,22 @@
+name: telegram-block
+description: >-
+  Balena block which connects your app to telegram bot
+version: 2.0.7
+type: sw.application
+assets:
+  repository:
+    type: blob.asset
+    data:
+      url: 'https://github.com/just4give/telegram-block'
+  logo:
+    type: blob.asset
+    data:
+      url: 'https://raw.githubusercontent.com/just4give/telegram-block/master/logo.png'
+data:
+  defaultDeviceType: raspberrypi3
+  supportedDeviceTypes:
+    - raspberrypi4-64
+    - fincm3
+    - raspberrypi3
+    - raspberrypi3-64
+    
