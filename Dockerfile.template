@@ -1,4 +1,4 @@
-ARG NODE_VERSION=12
+ARG NODE_VERSION=14
 ARG BALENA_ARCH=%%BALENA_ARCH%%
 
 FROM balenalib/${BALENA_ARCH}-debian-node:$NODE_VERSION as base
@@ -9,7 +9,7 @@ COPY server.js ./
 COPY package.json ./
 COPY package-lock.json ./
 
-RUN npm ci
+RUN npm install
 
 EXPOSE 1883
 
