@@ -39,6 +39,7 @@ jobs:
       - name: Docker Push
         run: |
           # docker buildx build --help
-          # sh ./build-images.sh
-          docker buildx build . --pull --build-arg BALENA_ARCH=armv7hf --platform $PLATFORM linux/arm/v7 --file Dockerfile.template --tag mithundotdas/telegram-block:armv7hf --load
+          chmod +x build-images.sh
+          ./build-images.sh
+          # docker buildx build . --pull --build-arg BALENA_ARCH=armv7hf --platform $PLATFORM linux/arm/v7 --file Dockerfile.template --tag mithundotdas/telegram-block:armv7hf --load
 
