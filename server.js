@@ -6,6 +6,9 @@ const TelegramBot = require('node-telegram-bot-api');
 const token = process.env.TG_TOKEN
 const chatId = process.env.TG_CHAT_ID
 const port = process.env.TG_PORT || 1883;
+const username = process.env.TG_BROKER_USERNAME || 'balena';
+const password = process.env.TG_BROKER_PASSWORD || 'balena';
+
 const bot = new TelegramBot(token, {polling: true});
 
 const allowedTypes = ["text","photo","audio"];
@@ -13,7 +16,7 @@ process.env["NTBA_FIX_350"] = 1;
 
 server.listen(port, function () {
   console.log('mqtt broker started and listening on port ', port)
-  const client = mqtt.connect(`mqtt://localhost:${port}`);
+  const client = mqtt.connect(`mqtt://localhost:${port}`,{username: username, password: password});
 
     client.on('connect', function () {
         client.subscribe('/tg/tx');
@@ -59,6 +62,15 @@ server.listen(port, function () {
   
 })
 
+aedes.authenticate = function (client, uname, pword, callback) {
+    if(username === uname && password === pword.toString()){
+        
+        callback(null, true);
+    }else{
+        callback(null, false);
+    }
+    
+  }
 
 aedes.on('client', function (client) {
     console.log('client connected: ' + (client ? client.id : client) , 'to broker', aedes.id);
