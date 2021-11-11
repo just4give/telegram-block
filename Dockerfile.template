@@ -1,0 +1,16 @@
+ARG NODE_VERSION=12
+ARG BALENA_ARCH=%%BALENA_ARCH%%
+
+FROM balenalib/${BALENA_ARCH}-debian-node:$NODE_VERSION as base
+
+WORKDIR /usr/src/app
+COPY start.sh ./
+COPY server.js ./
+COPY package.json ./
+COPY package-lock.json ./
+
+RUN npm ci
+
+EXPOSE 1883
+
+CMD ["sh", "start.sh"]
