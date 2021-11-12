@@ -1,5 +1,5 @@
 
-[![Publish Docker Images](https://github.com/just4give/telegram-block/actions/workflows/docke-push.yml/badge.svg)](https://github.com/just4give/telegram-block/actions/workflows/docke-push.yml)
+[![Publish Docker Images](https://github.com/just4give/telegram-block/actions/workflows/docker-push.yml/badge.svg)](https://github.com/just4give/telegram-block/actions/workflows/docker-push.yml)
 
 A block to integrate your balena application with telegram bot 
 
