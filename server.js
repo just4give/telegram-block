@@ -5,7 +5,7 @@ const TelegramBot = require('node-telegram-bot-api');
 
 const token = process.env.TG_TOKEN
 const chatId = process.env.TG_CHAT_ID
-const port = process.env.TG_PORT || 1883;
+const port = process.env.TG_BROKER_PORT || 1883;
 const username = process.env.TG_BROKER_USERNAME || 'balena';
 const password = process.env.TG_BROKER_PASSWORD || 'balena';
 
