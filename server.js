@@ -8,6 +8,8 @@ const chatId = process.env.TG_CHAT_ID
 const port = process.env.TG_BROKER_PORT || 1883;
 const username = process.env.TG_BROKER_USERNAME || 'balena';
 const password = process.env.TG_BROKER_PASSWORD || 'balena';
+const txTopic = process.env.TG_SEND_TOPIC || '/tg/tx';
+const rxTopic = process.env.TG_RECEIVE_TOPIC || '/tg/rx';
 
 const bot = new TelegramBot(token, {polling: true});
 
@@ -19,13 +21,13 @@ server.listen(port, function () {
   const client = mqtt.connect(`mqtt://localhost:${port}`,{username: username, password: password});
 
     client.on('connect', function () {
-        client.subscribe('/tg/tx');
+        client.subscribe(txTopic);
     })
 
     client.on('message', function (topic, message) {
 
       try {
-        if(topic === "/tg/tx"){
+        if(topic === txTopic){
             
             let jsonMessage = JSON.parse(message.toString());
             if(!allowedTypes.includes(jsonMessage.type)){
@@ -55,7 +57,7 @@ server.listen(port, function () {
         const chatId = msg.chat.id;
         
         if(msg.chat.id === chatId && msg.text){
-            client.publish('/tg/rx', msg.text);
+            client.publish(rxTopic, msg.text);
         }
    
     });
