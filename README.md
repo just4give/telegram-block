@@ -139,6 +139,8 @@ TX message format
 | `TG_BROKER_PORT`        | `1883`                              | MQTT broker port                                                      |
 | `TG_TOEKN`              |                                     | Telegram token. You must supply in docker-compose or variable         |
 | `TG_CHAT_ID`            |                                     | Telegram chat id. You must supply in docker-compose or variable       |
+| `TG_SEND_TOPIC`         | `/tg/tx`                            | MQTT Topic where you send data for it to be sent to the telegram      |
+| `TG_RECEIVE_TOPIC`      | `/tg/rx`                            | Subscribe to this MQTT topic to receive messages sent from telegram   |
 
 
 You can refer to the [docs](https://www.balena.io/docs/learn/manage/serv-vars/#environment-and-service-variables) on how to set environment or service variables
